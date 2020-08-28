@@ -5,7 +5,7 @@
 
 ## インストール
 ``` bash
-deno install --name dsm https://github.com/windchime-yk/deno-scripts-manager/cli/mod.ts
+deno install --name dsm https://github.com/windchime-yk/deno-scripts-manager/raw/master/cli/mod.ts
 ```
 
 ## 使い方
