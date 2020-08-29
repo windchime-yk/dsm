@@ -1,4 +1,4 @@
-import { exec, isExistFileSync, writeFile, readFile } from "./utils/deps.ts"
+import { exec, isExistFileSync, writeFile, readFile, yellow, red } from "./utils/deps.ts"
 
 const [ cmd ] = Deno.args
 const cwdSettingFile = `${Deno.cwd()}/deno-scripts.json`
@@ -10,7 +10,7 @@ if (cmd === 'init' && !isExistFileSync(cwdSettingFile)) {
   }
   await writeFile(JSON.stringify(sampleData), cwdSettingFile)
 } else if (cmd === 'init' && isExistFileSync(cwdSettingFile)) {
-  console.error('ERR!! exist config file.');
+  console.warn(`${yellow('WARN')} exist config file.`);
 } else if (['-v', 'version'].includes(cmd)) {
   console.log(version);
 } else if (['-h', 'help'].includes(cmd)) {
@@ -26,6 +26,10 @@ if (cmd === 'init' && !isExistFileSync(cwdSettingFile)) {
   Other       : Activate the command that matches the text you entered.
   `)
 } else {
-  const scriptData = await readFile(cwdSettingFile)
-  await exec(JSON.parse(scriptData)[cmd])
+  try {
+    const scriptData = await readFile(cwdSettingFile)
+    await exec(JSON.parse(scriptData)[cmd])
+  } catch (err) {
+    console.error(`${red('ERR!!')} There are no commands in the configuration file.`)
+  }
 }
