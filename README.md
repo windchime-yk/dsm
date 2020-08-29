@@ -8,6 +8,11 @@
 $ deno install --name dsm --allow-run --allow-read --allow-write https://github.com/windchime-yk/deno-scripts-manager/raw/master/cli/mod.ts
 ```
 
+※もし`dsm: command not found`と出た場合、以下のテキストを`.bash_profile`に追加
+``` bash
+export PATH="/Users/username/.deno/bin:$PATH"
+```
+
 ## 使い方
 ``` bash
 $ dsm init
