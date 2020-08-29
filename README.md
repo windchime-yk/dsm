@@ -5,13 +5,13 @@
 
 ## インストール
 ``` bash
-deno install --name dsm --allow-run --allow-read --allow-write https://github.com/windchime-yk/deno-scripts-manager/raw/master/cli/mod.ts
+$ deno install --name dsm --allow-run --allow-read --allow-write https://github.com/windchime-yk/deno-scripts-manager/raw/master/cli/mod.ts
 ```
 
 ## 使い方
-```
-dsm init
-dsm version:deno # サンプルスクリプト
+``` bash
+$ dsm init
+$ dsm version:deno # サンプルスクリプト
 ```
 
 ## 依存関係
@@ -19,5 +19,8 @@ dsm version:deno # サンプルスクリプト
 
 ## テスト
 ``` bash
-deno run --allow-run --allow-read --allow-write cli/mod.ts deno -V
+$ git clone git@github.com:windchime-yk/deno-scripts-manager.git
+$ cd path/to/deno-scripts-manager
+$ deno run --allow-run --allow-read --allow-write cli/mod.ts init
+$ deno run --allow-run --allow-read --allow-write cli/mod.ts version:deno
 ```
