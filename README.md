@@ -1,30 +1,30 @@
 # Deno Scripts Manager
-【日本語 / [English](./README_EN.md)】
+【[日本語](./README_JP.md) / English】
 
-試験的に作ったDeno製のスクリプト管理ツール。  
-スクリプトの実行のみに対応。  
-より多機能なものなら[Denon](https://github.com/denosaurs/denon)がオススメ。
+An experimental script management tool made by Deno.  
+It supports only script execution.  
+[Denon](https://github.com/denosaurs/denon) is recommended for more multifunctional scripts.
 
-## インストール
+## Install
 ``` bash
 $ deno install --name dsm --allow-run --allow-read --allow-write https://github.com/windchime-yk/deno-scripts-manager/raw/master/cli/mod.ts
 ```
 
-※もし`dsm: command not found`と出た場合、以下のテキストを`.bash_profile`に追加
-``` bash
+If you get `dsm: command not found`, add the following text to your `.bash_profile`.
+```bash
 export PATH="/Users/username/.deno/bin:$PATH"
 ```
 
-## 使い方
+## Usage
 ``` bash
 $ dsm init
-$ dsm version:deno # サンプルスクリプト
+$ dsm version:deno # sample script
 ```
 
-## 依存関係
+## Dependency
 - [exec](https://deno.land/x/exec)
 
-## テスト
+## Test
 ``` bash
 $ git clone git@github.com:windchime-yk/deno-scripts-manager.git
 $ cd path/to/deno-scripts-manager
