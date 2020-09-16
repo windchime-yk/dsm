@@ -15,7 +15,7 @@ if (cmd === 'init' && !isExistFileSync(cwdSettingFile)) {
   console.log(version);
 } else if (['-h', 'help'].includes(cmd)) {
   console.log(`
-  deno-scripts-manager ${version}
+  dsm ${version}
 
   Usage:
   dsm [command]
