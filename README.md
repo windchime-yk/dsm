@@ -21,7 +21,7 @@ $ dsm init
 $ dsm version:deno # sample script
 ```
 
-## Dependency
+## Dependencies
 - [exec](https://deno.land/x/exec)
 
 ## Test
