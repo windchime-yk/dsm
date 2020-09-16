@@ -1,6 +1,4 @@
 # Deno Scripts Manager
-【日本語 / [English](./README.md)】
-
 試験的に作ったDeno製のスクリプト管理ツール。  
 スクリプトの実行のみに対応。  
 より多機能なものなら[Denon](https://github.com/denosaurs/denon)がオススメ。

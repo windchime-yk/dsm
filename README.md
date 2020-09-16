@@ -1,6 +1,4 @@
 # Deno Scripts Manager
-【[日本語](./README_JP.md) / English】
-
 An experimental script management tool made by Deno.  
 It supports only script execution.  
 [Denon](https://github.com/denosaurs/denon) is recommended for more multifunctional scripts.
