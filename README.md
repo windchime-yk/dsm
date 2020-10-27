@@ -2,8 +2,11 @@
 > Deno Scripts Manager
 
 An experimental script management tool made by Deno.  
-It supports only script execution.  
-[Denon](https://github.com/denosaurs/denon) is recommended for more multifunctional scripts.
+It supports only script execution.
+
+## Warning
+**This module is not working properly.**  
+**Please use [Denon](https://github.com/denosaurs/denon).**
 
 ## Install
 ``` bash
