@@ -1,4 +1,6 @@
-import { exec, isExistFileSync, writeFile, readFile, yellow, red } from "./utils/deps.ts"
+import { exec } from "exec";
+import { readFile, writeFile, isExistFileSync } from "util";
+import { yellow, red } from "colors";
 
 const [cmd] = Deno.args;
 const cwdSettingFile = `${Deno.cwd()}/deno-scripts.json`;

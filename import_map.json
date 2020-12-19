@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "exec": "https://deno.land/x/exec/mod.ts",
+    "util": "https://github.com/windchime-yk/deno-util/raw/master/mod.ts",
+    "colors": "https://deno.land/std/fmt/colors.ts"
+  }
+}
