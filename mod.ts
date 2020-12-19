@@ -1,10 +1,15 @@
 import { exec } from "exec";
 import { readFile, writeFile, isExistFileSync } from "util";
 import { yellow, red } from "colors";
+import { GithubRelease } from "./model.ts";
 
 const [cmd] = Deno.args;
 const cwdSettingFile = `${Deno.cwd()}/deno-scripts.json`;
-const version = "v0.0.0";
+const version = async (): Promise<any> => {
+  const res = await fetch('https://api.github.com/repos/windchime-yk/dsm/releases')
+  const releases: GithubRelease[] = await res.json()
+  return releases[0].tag_name
+}
 
 const initDsm = async (): Promise<void> => {
   const sampleData = {
@@ -13,17 +18,17 @@ const initDsm = async (): Promise<void> => {
   await writeFile(JSON.stringify(sampleData), cwdSettingFile);
 };
 
-const existConfigWarn = () => {
+const existConfigWarn = (): void => {
   console.warn(`${yellow("WARN")} exist config file.`);
 }
 
-const printVersion = (): void => {
-  console.log(version);
+const printVersion = async (): Promise<void> => {
+  console.log(await version());
 };
 
-const printHelp = (): void => {
+const printHelp =  async (): Promise<void> => {
   console.log(`
-  dsm ${version}
+  dsm ${await version()}
 
   Usage:
   dsm [command]

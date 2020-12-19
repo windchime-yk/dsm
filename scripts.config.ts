@@ -5,7 +5,7 @@ const config: DenonConfig = {
     init: {
       cmd: "deno run mod.ts init",
       desc: "init dsm config file",
-      allow: ["run", "read", "write"],
+      allow: ["net", "run", "read", "write"],
       watch: false,
       unstable: true,
       importmap: "./import_map.json",
@@ -13,7 +13,23 @@ const config: DenonConfig = {
     denoversion: {
       cmd: "deno run mod.ts version:deno",
       desc: "print deno version",
-      allow: ["run", "read", "write"],
+      allow: ["net", "run", "read", "write"],
+      watch: false,
+      unstable: true,
+      importmap: "./import_map.json",
+    },
+    version: {
+      cmd: "deno run mod.ts -v",
+      desc: "print deno version",
+      allow: ["net", "run", "read", "write"],
+      watch: false,
+      unstable: true,
+      importmap: "./import_map.json",
+    },
+    help: {
+      cmd: "deno run mod.ts -h",
+      desc: "print deno version",
+      allow: ["net", "run", "read", "write"],
       watch: false,
       unstable: true,
       importmap: "./import_map.json",
