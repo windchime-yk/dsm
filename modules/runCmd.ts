@@ -1,14 +1,11 @@
 import { exec } from "exec";
-import { readFile, writeFile } from "util";
+import { readFile } from "util";
 import { yellow, red } from "colors";
 import type { GithubRelease } from "../model.ts";
 import { cmd, cwdSettingFile } from "./config.ts";
 
 export const initDsm = async (): Promise<void> => {
-  const sampleData = {
-    "version:deno": "deno -V",
-  };
-  await writeFile(JSON.stringify(sampleData), cwdSettingFile);
+  await Deno.copyFile("./modules/template.ts", cwdSettingFile);
 };
 
 export const existConfigWarn = (): void => {

@@ -1,3 +1,21 @@
+type Allow = "run" | "net" | "read" | "write" | "plugin";
+
+interface Options {
+  cmd: string;
+  desc?: string;
+  allow?: Allow[];
+  unstable?: boolean;
+  npx?: boolean;
+}
+
+export interface DsmConfig {
+  scripts: {
+    [command: string]: Options;
+  };
+  /** write import_map.json path */
+  importmap?: string
+}
+
 export interface GithubRelease {
   url?: string;
   assets_url?: string;
