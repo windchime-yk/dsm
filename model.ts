@@ -10,7 +10,7 @@ interface Options {
 
 export interface DsmConfig {
   scripts: {
-    [command: string]: Options;
+    [key: string]: Options;
   };
   /** write import_map.json path */
   importmap?: string
