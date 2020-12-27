@@ -1,8 +1,8 @@
 import { exec } from "exec";
-import { readFile } from "util";
 import { yellow, red } from "colors";
 import type { GithubRelease } from "../model.ts";
-import { cmd, cwdSettingFile } from "./config.ts";
+import { cmd, cwdSettingFile, settingFile } from "./config.ts";
+import { importConfig } from "./importConfig.ts";
 
 export const initDsm = async (): Promise<void> => {
   await Deno.copyFile("./modules/template.ts", cwdSettingFile);
@@ -40,8 +40,10 @@ export const printHelp = async (): Promise<void> => {
 
 export const runCommand = async (): Promise<void> => {
   try {
-    const scriptData = await readFile(cwdSettingFile);
-    await exec(JSON.parse(scriptData)[cmd]);
+    const configData = await importConfig(settingFile);
+    const script = configData?.scripts[cmd];
+    const cmdData = script!.cmd
+    exec(cmdData)
   } catch (err) {
     console.error(
       `${red("ERR!!")} There are no commands in the configuration file.`

@@ -2,6 +2,14 @@ import { DenonConfig } from "https://deno.land/x/denon@2.4.4/mod.ts";
 
 const config: DenonConfig = {
   scripts: {
+    runcmd: {
+      cmd: "deno run mod.ts",
+      desc: "run command from dsm.config.ts",
+      allow: ["net", "run", "read", "write"],
+      watch: false,
+      unstable: true,
+      importmap: "./import_map.json",
+    },
     init: {
       cmd: "deno run mod.ts init",
       desc: "init dsm config file",
