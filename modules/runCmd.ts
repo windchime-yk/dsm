@@ -12,7 +12,7 @@ export const existConfigWarn = (): void => {
   console.warn(`${yellow("WARN")} exist config file.`);
 };
 
-const version = async (): Promise<any> => {
+const version = async (): Promise<string | undefined> => {
   const res = await fetch(
     "https://api.github.com/repos/windchime-yk/dsm/releases"
   );
