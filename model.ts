@@ -13,7 +13,7 @@ export interface DsmConfig {
     [key: string]: Options;
   };
   /** write import_map.json path */
-  importmap?: string
+  importmap?: string;
 }
 
 export interface GithubRelease {

@@ -1,9 +1,9 @@
 import { isExistFileSync } from "util";
 import {
-  initDsm,
   existConfigWarn,
-  printVersion,
+  initDsm,
   printHelp,
+  printVersion,
   runCommand,
 } from "./modules/runCmd.ts";
 import { cmd, cwdSettingFile } from "./modules/config.ts";

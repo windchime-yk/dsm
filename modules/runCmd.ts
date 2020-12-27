@@ -1,5 +1,5 @@
 import { exec } from "exec";
-import { yellow, red } from "colors";
+import { red, yellow } from "colors";
 import type { GithubRelease } from "../model.ts";
 import { cmd, cwdSettingFile, settingFile } from "./config.ts";
 import { importConfig } from "./importConfig.ts";
@@ -14,7 +14,7 @@ export const existConfigWarn = (): void => {
 
 const version = async (): Promise<string | undefined> => {
   const res = await fetch(
-    "https://api.github.com/repos/windchime-yk/dsm/releases"
+    "https://api.github.com/repos/windchime-yk/dsm/releases",
   );
   const releases: GithubRelease[] = await res.json();
   return releases[0].tag_name;
@@ -42,11 +42,11 @@ export const runCommand = async (): Promise<void> => {
   try {
     const configData = await importConfig(settingFile);
     const script = configData?.scripts[cmd];
-    const cmdData = script!.cmd
-    exec(cmdData)
+    const cmdData = script!.cmd;
+    exec(cmdData);
   } catch (err) {
     console.error(
-      `${red("ERR!!")} There are no commands in the configuration file.`
+      `${red("ERR!!")} There are no commands in the configuration file.`,
     );
   }
 };

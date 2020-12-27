@@ -41,7 +41,7 @@ const config: DenonConfig = {
       watch: false,
       unstable: true,
       importmap: "./import_map.json",
-    }
+    },
   },
 };
 
