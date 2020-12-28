@@ -1,7 +1,6 @@
 import { exec } from "exec";
 import { red, yellow } from "colors";
-import type { GithubRelease } from "../model.ts";
-import { cmd, cwdSettingFile, settingFile } from "./config.ts";
+import { cmd, cwdSettingFile, settingFile, version } from "./config.ts";
 import { importConfig } from "./importConfig.ts";
 
 export const initDsm = async (): Promise<void> => {
@@ -10,14 +9,6 @@ export const initDsm = async (): Promise<void> => {
 
 export const existConfigWarn = (): void => {
   console.warn(`${yellow("WARN")} exist config file.`);
-};
-
-const version = async (): Promise<string | undefined> => {
-  const res = await fetch(
-    "https://api.github.com/repos/windchime-yk/dsm/releases",
-  );
-  const releases: GithubRelease[] = await res.json();
-  return releases[0].tag_name;
 };
 
 export const printVersion = async (): Promise<void> => {
